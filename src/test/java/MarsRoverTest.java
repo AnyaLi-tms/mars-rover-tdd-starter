@@ -41,4 +41,14 @@ public class MarsRoverTest {
         // Then
         assertEquals("(0, -1) S", rover.report());
     }
+
+    @Test
+    void should_move_forward_one_step_when_facing_west() {
+        // Given
+        MarsRover rover = new MarsRover(0, 0, Direction.W);
+        // When
+        rover.execute("M");
+        // Then
+        assertEquals("(-1, 0) W", rover.report());
+    }
 }
