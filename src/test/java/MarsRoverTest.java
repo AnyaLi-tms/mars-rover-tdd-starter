@@ -171,4 +171,14 @@ public class MarsRoverTest {
         // Then
         assertEquals("(0, 0) N", rover.report());
     }
+
+    @Test
+    void should_execute_batch_commands_sequentially() {
+        // Given
+        MarsRover rover = new MarsRover(0, 0, Direction.N);
+        // When
+        rover.execute("MRMLM");
+        // Then
+        assertEquals("(1, 2) N", rover.report());
+    }
 }
