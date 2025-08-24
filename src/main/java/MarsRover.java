@@ -20,6 +20,7 @@ public class MarsRover {
                 case 'B' -> moveBackward();
                 case 'L' -> turnLeft();
                 case 'R' -> turnRight();
+                default -> throw new IllegalArgumentException("Invalid command: " + c);
             }
         }
     }
