@@ -15,8 +15,11 @@ public class MarsRover {
 
     public void execute(String commands) {
         for (char c : commands.toCharArray()) {
-            if (c == 'M') {
-                moveForward();
+            switch (c) {
+                case 'M' -> moveForward();
+                case 'B' -> moveBackward(); // 新增
+                // L/R 先不实现，遵循 baby steps
+                default -> { /* stretch: 可选择抛异常 */ }
             }
         }
     }
@@ -27,6 +30,15 @@ public class MarsRover {
             case E -> x++;
             case S -> y--;
             case W -> x--;
+        }
+    }
+
+    private void moveBackward() {
+        switch (direction) {
+            case N -> y--;
+            case E -> x--;
+            case S -> y++;
+            case W -> x++;
         }
     }
 }
