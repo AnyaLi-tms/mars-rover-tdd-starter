@@ -19,7 +19,7 @@ public class MarsRover {
                 case 'M' -> moveForward();
                 case 'B' -> moveBackward();
                 case 'L' -> turnLeft();
-                // case 'R' -> turnRight(); // 右转暂未实现
+                case 'R' -> turnRight();
             }
         }
     }
@@ -48,6 +48,15 @@ public class MarsRover {
             case W -> direction = Direction.S;
             case S -> direction = Direction.E;
             case E -> direction = Direction.N;
+        }
+    }
+
+    private void turnRight() {
+        switch (direction) {
+            case N -> direction = Direction.E;
+            case E -> direction = Direction.S;
+            case S -> direction = Direction.W;
+            case W -> direction = Direction.N;
         }
     }
 }
