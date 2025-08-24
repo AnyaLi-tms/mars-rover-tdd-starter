@@ -181,4 +181,14 @@ public class MarsRoverTest {
         // Then
         assertEquals("(1, 2) N", rover.report());
     }
+
+    @Test
+    void should_throw_exception_for_invalid_command() {
+        MarsRover rover = new MarsRover(0, 0, Direction.N);
+        IllegalArgumentException ex = assertThrows(
+                IllegalArgumentException.class,
+                () -> rover.execute("MX")
+        );
+        assertEquals("Invalid command: X", ex.getMessage());
+    }
 }
