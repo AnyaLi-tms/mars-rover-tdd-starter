@@ -198,4 +198,11 @@ public class MarsRoverTest {
         rover.execute("");
         assertEquals("(0, 0) N", rover.report());
     }
+
+    @Test
+    void should_execute_batch_commands_with_multiple_turns() {
+        MarsRover rover = new MarsRover(0, 0, Direction.E);
+        rover.execute("MLMRMB");
+        assertEquals("(1, 1) E", rover.report());
+    }
 }
