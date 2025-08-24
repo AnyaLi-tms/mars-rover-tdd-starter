@@ -17,9 +17,9 @@ public class MarsRover {
         for (char c : commands.toCharArray()) {
             switch (c) {
                 case 'M' -> moveForward();
-                case 'B' -> moveBackward(); // 新增
-                // L/R 先不实现，遵循 baby steps
-                default -> { /* stretch: 可选择抛异常 */ }
+                case 'B' -> moveBackward();
+                case 'L' -> turnLeft();
+                // case 'R' -> turnRight(); // 右转暂未实现
             }
         }
     }
@@ -39,6 +39,15 @@ public class MarsRover {
             case E -> x--;
             case S -> y++;
             case W -> x++;
+        }
+    }
+
+    private void turnLeft() {
+        switch (direction) {
+            case N -> direction = Direction.W;
+            case W -> direction = Direction.S;
+            case S -> direction = Direction.E;
+            case E -> direction = Direction.N;
         }
     }
 }
