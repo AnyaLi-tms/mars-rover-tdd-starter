@@ -191,4 +191,11 @@ public class MarsRoverTest {
         );
         assertEquals("Invalid command: X", ex.getMessage());
     }
+
+    @Test
+    void should_handle_empty_command() {
+        MarsRover rover = new MarsRover(0, 0, Direction.N);
+        rover.execute("");
+        assertEquals("(0, 0) N", rover.report());
+    }
 }
