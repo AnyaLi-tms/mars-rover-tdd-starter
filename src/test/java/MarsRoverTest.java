@@ -61,4 +61,14 @@ public class MarsRoverTest {
         // Then
         assertEquals("(0, -1) N", rover.report());
     }
+
+    @Test
+    void should_move_backward_one_step_when_facing_east() {
+        // Given
+        MarsRover rover = new MarsRover(0, 0, Direction.E);
+        // When
+        rover.execute("B");
+        // Then
+        assertEquals("(-1, 0) E", rover.report());
+    }
 }
